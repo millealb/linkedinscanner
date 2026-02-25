@@ -82,13 +82,14 @@ export default function App() {
 
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-            contents: [{ parts: [{ text: `Evaluate this candidate profile:\n\n${profile}` }] }],
+            contents: [{ 
+              parts: [{ text: `${SYSTEM_PROMPT}\n\nEvaluate this candidate profile:\n\n${profile}` }] 
+            }],
             generationConfig: { temperature: 0.3 }
           })
         }
