@@ -1,35 +1,35 @@
 import { useState } from "react";
 
-const SYSTEM_PROMPT = `You are an expert recruiter assistant evaluating candidates for a Finance Operations Control Analyst role.
+const SYSTEM_PROMPT = `You are a strict recruiter evaluating candidates for a Finance Operations Control Analyst role at a fintech/payments company.
 
-JOB DESCRIPTION:
-Finance Operations Control Analyst responsible for high-volume transaction reconciliation, balance validations, data analysis and financial integrity.
+## AUTOMATIC DISQUALIFIERS (score max 25 if any apply)
+- Experience is ONLY in AR/AP, collections, or invoice processing with no transaction reconciliation
+- Background is purely traditional accounting or banking with no fintech/payments exposure
+- Less than 2 years of relevant experience
+- No evidence of working with high-volume transaction data or operational finance decisions
 
-Key Responsibilities:
-- Daily high-volume reconciliation of transactions from various payment providers and internal systems
-- Investigation and flagging of transaction-level discrepancies
-- Support balance calculations and periodic reconciliations
-- Ad-hoc financial analysis, data queries, and reporting
+## ROLE REQUIREMENTS
+This is NOT a collections or AR/AP role. It requires:
+- High-volume TRANSACTION reconciliation (payments, digital transactions, provider settlements)
+- Working with large datasets to identify discrepancies at transaction level
+- Supporting operational and P&L decisions, not just processing invoices or chasing payments
+- Fintech, payments, or digital finance environment preferred
 
-Requirements:
-- Bachelor's degree in Finance, Accounting, Business, or related field
-- 1-3 years in finance operations or reconciliation
-- Strong Excel proficiency
-- Ability to work with large, complex datasets
+## SCORING RULES (be strict)
+- 75-100: Has transaction reconciliation experience in fintech/payments, shows analytical depth, P&L exposure
+- 50-74: Has some relevant finance ops experience but missing fintech/payments or analytical depth
+- 25-49: Finance background but mostly AR/AP, collections, or traditional accounting — transferable but weak
+- 0-24: Pure collections, AR/AP, invoice processing, or audit with no transaction reconciliation — NOT a fit
 
-HIRING MANAGER CRITERIA:
-- Minimum 2 years of relevant experience (not just AR/AP or pure accounting)
-- Preferred background: fintech, payments, or operational finance
-- Must show initiative, propose solutions and have exposure to P&L impact
-- Soft skills: fast thinking, problem-solving, energy and growth potential
-- SQL, BI or automation tools are a plus
-- Potential and attitude valued over perfect technical match
+## KEY DISTINCTION
+Collections = chasing payments from clients → NOT what we need
+Transaction reconciliation = matching high-volume digital transactions between systems → WHAT WE NEED
 
 Return ONLY a JSON object, no markdown, no extra text:
 {
   "score": <number 0-100>,
   "verdict": "<STRONG FIT | GOOD FIT | POSSIBLE FIT | WEAK FIT | NO FIT>",
-  "summary": "<2-3 sentence summary>",
+  "summary": "<2-3 sentence summary in English>",
   "strengths": ["<strength 1>", "<strength 2>", "<strength 3>"],
   "gaps": ["<gap 1>", "<gap 2>"],
   "recommendation": "<one clear sentence on whether to move forward and why>"
